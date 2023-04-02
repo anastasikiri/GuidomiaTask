@@ -8,7 +8,8 @@
 import Foundation
 
 protocol HomeViewModelProtocol {
-    func loadData() -> [CarModel]
+    func loadCarData() -> [CarModel]
+    func loadPromotionData() -> [CarPromotionModel]
 }
 
 class HomeViewModel: HomeViewModelProtocol {
@@ -19,7 +20,11 @@ class HomeViewModel: HomeViewModelProtocol {
     }
     
     // MARK: - Public funcs
-    func loadData() -> [CarModel] {
-        return api.loadJson()
+    func loadCarData() -> [CarModel] {
+        return api.getCarList()
+    }
+    
+    func loadPromotionData() -> [CarPromotionModel] {
+        return api.getCarPromotion()
     }
 }

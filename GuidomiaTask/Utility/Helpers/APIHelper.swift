@@ -8,14 +8,22 @@
 import Foundation
 
 protocol APIHelperProtocol {
-    func loadJson() -> [CarModel]
+    func getCarList() -> [CarModel]
+    func getCarPromotion() -> [CarPromotionModel]
 }
 
 class APIHelper: APIHelperProtocol {
   
     private let fileName = "car_list"
     
-    func loadJson() -> [CarModel] {
+    func getCarPromotion() -> [CarPromotionModel] {
+        return [CarPromotionModel(
+                carImage: "Tacoma",
+                carModel: "Tacoma 2021",
+                carDescription: "Get your's now")]
+    }
+    
+    func getCarList() -> [CarModel] {
         guard let path = Bundle.main.path(forResource: fileName, ofType: "json") else { return [] }
         let url = URL(fileURLWithPath: path)
         

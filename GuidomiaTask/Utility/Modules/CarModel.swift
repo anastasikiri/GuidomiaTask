@@ -2,7 +2,7 @@
 //  CarModel.swift
 //  GuidomiaTask
 //
-//  Created by Kyrylo Tokar on 2023-04-02.
+//  Created by Anastasia Bilous on 2023-04-02.
 //
 
 import Foundation
@@ -15,4 +15,8 @@ struct CarModel : Codable {
     let model: String
     let prosList: [String]
     let rating: Int
+    
+    var customerPriceString: String {
+        return "Price: " + String(Int(customerPrice) / 1000) + "k"
+    }
 }
